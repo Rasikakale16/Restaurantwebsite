@@ -1,0 +1,564 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
+*,
+*::after,
+*::before {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+html{
+    font-family: 62.5%;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+}
+
+.about h1 {
+    text-align: center;
+    padding: 10px;
+}
+
+.container {
+    /* border: 1px solid red; */
+    margin: auto;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    align-items: center;
+    max-width: 800px;
+}
+
+.container img {
+    /* border: 1px solid red; */
+    /* fixed width and height for img */
+    width: 350px;
+    height: 350px;
+    /* border radius makes website beatiful if used in better way */
+    border-radius: 10px;
+    max-width:100%;
+    
+}
+
+.container .text {
+    /* border: 1px solid red; */
+    /* use padding for neatness */
+    padding: 10px;
+    max-width: 350px;
+    text-align: justify;
+}
+
+.btn {
+    display: inline-block;
+    padding: 1em 2.5em;
+    text-decoration: none;
+    border-radius: 50px;
+    cursor: pointer;
+    outline: none;
+    margin-top: 1em;
+    text-transform: uppercase;
+    font-weight: 600;
+}
+
+.btn-primary {
+    color: #fff;
+    background: #16a083;
+}
+
+
+/*########## navbar sytling ####### */
+
+
+/* for desktop mode */
+
+.navbar input [type='checkbox'],
+.navbar .hamburger-lines {
+    display: none;
+}
+
+.navbar {
+    box-shadow: opx 4px 10px #000;
+    position: fixed;
+    width: 100%;
+    background: rgb(247, 240, 240);
+    color: rgb(10, 10, 10);
+    opacity: 0.9;
+    z-index: 999;
+}
+
+.navbar-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.menu-items {
+    order: 6;
+    display: flex;
+}
+
+.menu-items li {
+    list-style: none;
+    margin-left: 1.5rem;
+    font-size: 1rem;
+}
+
+.logo {
+    order: 1;
+    font-size: 2rem;
+}
+
+.navbar a {
+    color: #444;
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s ease-in;
+}
+
+.navbar a:hover {
+    color: red;
+}
+
+
+/* showcase ki styling */
+
+.showcase-area {
+    height: 50vh;
+    background: linear-gradient(rgba(240, 240, 240, -0.0), rgba(255, 255, 255, 0.6)), url("./header-image2.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.showcase-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    font-size: 1.6rm;
+}
+
+.main-title {
+    text-align: center;
+    text-shadow: #000;
+    text-decoration: double;
+}
+
+.food {
+    text-align: center;
+}
+
+
+/* About us */
+
+
+.text1 {
+    display: flex;
+    margin: auto;
+    transform:translateX(-250px);
+    opacity:0;
+    animation: text1-animation 1s ease-in-out forwards;
+
+}
+@keyframes text1-animation{
+    100%{
+        opacity: 5;
+        transform: translate(0);
+    }
+}
+
+
+
+@media (min-width:700px) {
+    .container {
+        /* border: 1px solid red; */
+        margin: auto;
+        padding: 20px;
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        align-items: center;
+    }
+}
+.img{
+    max-width:100%;
+    opacity: 0;
+    background-color:#fff;
+    transform:translateX(250px);
+    animation: img-animation 1s ease-in-out forwards;
+
+}
+@keyframes img-animation{
+    100%{
+        opacity:5;
+        transform: translate(0);
+    }
+}
+
+/*######## food category styling ####*/
+#food{
+    box-sizing: border-box;
+    padding: 5rem 0 10rem 0;
+}
+#food h2{
+    text-align:center;
+    font-size: 3rem;
+    font-weight:400;
+    margin-bottom:40px;
+    text-transform:uppercase;
+    color:#555;
+}
+.food-container{
+    display: flex;
+    justify-content: space-between;
+}
+
+.food-container img{
+    display: block;
+    width: 100%;
+    margin: auto;
+    max-height:300px;
+    object-fit: cover;
+    object-position: center;
+}
+.img-container{
+    margin:0 1rem;
+    position: relative;
+    
+}
+.img-content{
+    position:relative;
+    top:70%;
+    left:50%;
+    transform:translate(-50%,-50%);
+    opacity:0;
+    z-index:2;
+    text-align:center;
+    transition: all 0.3s ease-in-out 0.1s;
+}
+.img-content h3{
+    color:#fff;
+    font-size:3rem;
+}
+.img-content a{
+    font-size:1.2rem;
+}
+.img-container::after{
+    content:"";
+    display: block;
+    position: absolute;
+    top:0;
+    left:0;
+    width: 100%;
+    height:100%;
+    background:rgba(0,0,0,0.871);
+    /*opacity: 0;*/
+    z-index:1;
+    transform:scaleY(0);
+    transform-origin: 100% 100%;
+    transition: all 0.3s ease-in-out;
+}
+.img-container:hover::after{
+    opacity:1;
+    transform:scaleY(1);
+}
+.img-container:hover .img-content{
+    opacity: 1;
+    top:40%;
+}
+/* food-menu styling */
+.food-menu-heading{
+    font-size: 4rem;
+    text-align:center;
+    font-weight: 400;
+    color:#666;
+}
+.food-menu-container{
+    display: flex;
+    flex-wrap: wrap;
+    padding: 50px 0px 30px 0px;
+    justify-content: space-between;
+}
+.food-menu-container img{
+    display: block;
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    object-fit: cover;
+    object-position: center;
+}
+   
+.food-menu-item {
+    display:flex;
+    flex: 1 1 600px;
+    justify-content: space-evenly ;
+    margin-bottom:3rem; 
+}
+.food-description{
+    margin:auto 0.5rem;
+}
+.food-title{
+    font-size:2.2rem;
+    font-weight: 400;
+    color:#444;
+}
+.food-description p{
+    font-size: 1.4rem;
+    color:#555;
+    font-weight: 500;
+}
+.food-description .food-price{
+    color:green;
+    font-weight: 700;
+}
+a{
+    text-decoration: none;
+}
+#testimonials{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width:100%;
+}
+.testimonial-heading{
+    letter-spacing: 1px;
+    margin: 30px 0px;
+    padding: 10px 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.testimonial-heading h1{
+    font-size: 2.2rem;
+    font-weight: 500;
+    background-color: #202020;
+    color: #ffffff;
+    padding: 10px 20px;
+}
+.testimonial-heading span{
+    font-size: 1.3rem;
+    color: #252525;
+    margin-bottom: 10px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+.testimonial-box-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    width:100%;
+}
+.testimonial-box{
+    width:500px;
+    box-shadow: 2px 2px 30px rgba(0,0,0,0.1);
+    background-color: #ffffff;
+    padding: 20px;
+    margin: 15px;
+    cursor: pointer;
+}
+.profile-img{
+    width:50px;
+    height: 50px;
+    border-radius: 50%;
+    overflow: hidden;
+    margin-right: 10px;
+}
+.profile-img img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+.profile{
+    display: flex;
+    align-items: center;
+}
+.name-user{
+    display: flex;
+    flex-direction: column;
+}
+.name-user strong{
+    color: #3d3d3d;
+    font-size: 1.1rem;
+    letter-spacing: 0.5px;
+}
+.name-user span{
+    color: #979797;
+    font-size: 0.8rem;
+}
+.reviews{
+    color: #f9d71c;
+}
+.box-top{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+.client-comment p{
+    font-size: 0.9rem;
+    color: #4b4b4b;
+}
+.testimonial-box:hover{
+    transform: translateY(-10px);
+    transition: all ease 0.3s;
+}
+ 
+@media(max-width:1060px){
+    .testimonial-box{
+        width:45%;
+        padding: 10px;
+    }
+}
+@media(max-width:790px){
+    .testimonial-box{
+        width:100%;
+    }
+    .testimonial-heading h1{
+        font-size: 1.4rem;
+    }
+}
+@media(max-width:340px){
+    .box-top{
+        flex-wrap: wrap;
+        margin-bottom: 10px;
+    }
+    .reviews{
+        margin-top: 10px;
+    }
+}
+::selection{
+    color: #ffffff;
+    background-color: #252525;
+}
+#contact{
+    position: relative;
+    min-height: 50px;
+    padding:50px 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background-color: rgb(238, 229, 229);
+    background-size: cover;
+}
+.contact .content{
+    max-width:800px;
+    text-align: center;
+}
+.contact .content h2{
+    font-size: 36px;
+    font-weight: 500;
+    color: #fff;
+}
+.container2{
+    width:100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 30px;
+}
+.container2 .contactInfo{
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+}
+.container2 .contactInfo .boxx{
+    position:relative;
+    padding: 20px 0;
+    display: flex;
+}
+.container2 .contactInfo .box .txt{
+    display: flex;
+    margin-left:20px ;
+    font-size: 16px;
+    color:#fff;
+    flex-direction: column;
+}
+.txt h3{
+    font-weight: 500;
+    color: rgb(233, 45, 108);
+}
+.contactform{
+    width: 40%;
+    padding: 40px;
+    background:#fff;
+}
+.contactform h2{
+    font-size: 30px;
+    color:#333;
+    font-weight: 500;
+}
+.contactform .inputbox{
+    position: relative;
+    width:100%;
+    margin-top: 10px;
+}
+.contactform .inputbox input,
+.contactform .inputbox textarea
+{
+    width: 100%;
+    padding: 5px 0;
+    font-size: 16px;
+    margin:10px 0;
+    border:none;
+    border-bottom:  2px solid #333;
+    outline: none;
+    resize:none;
+}
+.contactform .inputbox span{
+    position: absolute;
+    left:0;
+    padding: 5px 0;
+    font-size: 16px;
+    margin:10px 0;
+    pointer-events: none;
+    transition:0.5s;
+    color:#666; 
+}
+.contactform .inputbox input:focus ~ span,
+.contactform .inputbox input:valid ~ span,
+.contactform .inputbox textarea:focus ~ span,
+.contactform .inputbox textarea:valid ~ span{
+    color: #e91e63;
+    font-size:12px;
+    transform: translateY(-20px);
+}
+.contactform .inputbox input[type="submit"]
+{
+    width:100px;
+    background:#00bcd4;
+    color:#fff;
+    border:none;
+    cursor:pointer;
+    padding:10px;
+    font-size: 18px;
+}
+@media(max-width:991px)
+{
+    .contact{
+        padding: 50px;
+    }
+    .container2{
+        flex-direction: column;
+    }
+    .container2 .contactInfo,
+    .contactform{
+        margin-bottom: 40px;
+        width:100%;
+    }
+}
+#footer h2{
+    text-align: center;
+    font-size: 2rem;
+    padding:2rem;
+    font-weight:500;
+    color:#fff;
+    background:rgb(65,65,65);
+}
